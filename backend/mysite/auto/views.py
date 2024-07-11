@@ -5,10 +5,14 @@ from rest_framework import generics
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 
 class AutoView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         cars = Auto.objects.all()
         serializer = AutoSerializer(cars, many=True)
@@ -24,6 +28,8 @@ class AutoView(APIView):
 
 
 class CarPartViewSet(viewsets.ViewSet):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     def list(self, request):
         queryset = CarPart.objects.all()
         serializer = CarPartSerializer(queryset, many=True)
@@ -38,6 +44,8 @@ class CarPartViewSet(viewsets.ViewSet):
 
 
 class CountryView(generics.ListCreateAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
 
