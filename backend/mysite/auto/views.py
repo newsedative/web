@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
+from rest_framework import viewsets
+from rest_framework import generics
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
-from rest_framework import viewsets
 # Create your views here.
 
 
@@ -33,4 +34,14 @@ class CarPartViewSet(viewsets.ViewSet):
         queryset = CarPart.objects.all()
         car_parts = get_object_or_404(queryset, pk=pk)
         serializer = CarPartSerializer(car_parts)
+        return Response(serializer.data)
+
+
+class CountryView(generics.ListCreateAPIView):
+    queryset = Country.objects.all()
+    serializer_class = CountrySerializer
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = CountrySerializer(queryset, many=True)
         return Response(serializer.data)

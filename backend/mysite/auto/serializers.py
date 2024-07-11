@@ -12,3 +12,9 @@ class CarPartSerializer(serializers.ModelSerializer):
     class Meta:
         model = CarPart
         fields = ('name', 'country', 'description', 'autos')
+
+
+class CountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Country
+        fields = ('country_name', 'code', 'currency')
