@@ -6,7 +6,7 @@ inflection==0.4.0
 jsonschema==4.0.0
 PyJWT==2.4.0
 PyYAML==5.2
-sqlparse==0.5.0
+sqlparse==0.4.4
 tzdata==2023.1
 uritemplate==4.1.1
 wrapt==1.16.0
