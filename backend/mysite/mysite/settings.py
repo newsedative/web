@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'auto',
     'rest_framework',
     'drf_spectacular',
-    'authentication',
 ]
 
 REST_FRAMEWORK = {
@@ -138,5 +137,3 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
 }
-
-AUTH_USER_MODEL = 'authentication.User'
