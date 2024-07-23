@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'authentication',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -140,3 +143,4 @@ SPECTACULAR_SETTINGS = {
     # OTHER SETTINGS
 }
 AUTH_USER_MODEL = 'auth.User'
+CORS_ORIGIN_ALLOW_ALL = True
