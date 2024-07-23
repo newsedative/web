@@ -35,12 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'auto',
     'rest_framework',
     'drf_spectacular',
     'authentication',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
+    'auto',
 ]
 
 REST_FRAMEWORK = {
@@ -138,6 +138,6 @@ SPECTACULAR_SETTINGS = {
 }
 AUTH_USER_MODEL = 'auth.User'
 
-
+ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 
